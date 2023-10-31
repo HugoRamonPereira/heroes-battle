@@ -42,7 +42,7 @@ export const useCardStore = create<CombatCardsStore>((set) => ({
   bringCards: async () => {
     set({ loading: true });
     try {
-      const response = await axios.get('http://homologacao3.azapfy.com.br/api/ps/metahumans');
+      const response = await axios.get(process.env.NEXT_PUBLIC_BASE_URL || '');
       set({ cards: response.data, loading: false });
     } catch (error) {
       set({ error: toast.error('Erro ao carregar os dados',

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://homologacao3.azapfy.com.br/api/ps/metahumans';
+const url = process.env.NEXT_PUBLIC_BASE_URL || '';
 
 export async function getWarriors() {
   const response = await axios.get(url);
